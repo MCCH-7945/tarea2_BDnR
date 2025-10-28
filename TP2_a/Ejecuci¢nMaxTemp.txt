@@ -1,0 +1,18 @@
+﻿# Ejecución (simulación) de MapReduce usando python y comandos del sistema operativo:
+
+cat Temps2024.txt | python3 mapperMaxTemp.py | sort | python3 reducerMaxTemp.py
+
+
+
+
+# Ejecución de MapReduce usando hadoop con un solo nodo:
+
+hadoop jar /opt/hadoop-3.4.2/share/hadoop/tools/lib/hadoop-streaming-*.jar \
+-input Temps2024.txt -output MaxTempxMes \
+-mapper "python3 mapperMaxTemp.py" -reducer "python3 reducerMaxTemp.py"
+
+
+
+
+
+
