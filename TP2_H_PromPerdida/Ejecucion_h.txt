@@ -1,0 +1,17 @@
+# ===============================================
+# Ejecución (simulación local de Hadoop)
+# ===============================================
+
+cat regqoe100.csv | python3 mapper_h.py | sort | python3 reducer_h.py
+
+
+
+# ===============================================
+# Ejecución con Hadoop Streaming (sin HDFS, modo local)
+# ===============================================
+
+hadoop jar /opt/hadoop-3.4.2/share/hadoop/tools/lib/hadoop-streaming-3.4.2.jar \
+-D mapreduce.framework.name=local \
+-input regqoe100.csv -output PromPerdida \
+-mapper "python3 mapper_h.py" -reducer "python3 reducer_h.py"
+

@@ -1,0 +1,1 @@
+cat regqoe100.csv | python3 mapper_b.py | sort | python3 reducer_b.py

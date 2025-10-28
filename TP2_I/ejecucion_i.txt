@@ -1,0 +1,15 @@
+# ===============================================
+# Ejecución (modo local, sin HDFS)
+# ===============================================
+
+chmod +x mapper_i.py reducer_i.py
+rm -rf PromLatencia
+
+hadoop jar /opt/hadoop-3.4.2/share/hadoop/tools/lib/hadoop-streaming-3.4.2.jar \
+-D mapreduce.framework.name=local \
+-input regqoe100.csv -output PromLatencia \
+-mapper "./mapper_i.py" -reducer "./reducer_i.py"
+
+# Ver resultado
+cat PromLatencia/part-00000
+
